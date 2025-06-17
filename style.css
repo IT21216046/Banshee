@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.backgame{
+    width: 100%;
+    min-height: 100vh;
+    background-image: url(images/back.png);
+    background-position: center;
+    background-size: cover;
+    padding: 10px 10%;
+    overflow: hidden;
+    position: relative;
+}
+
+nav{
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+}
+
+.logo{
+    width: 160px;
+}
+
+nav ul li{
+    display: inline-block;
+    list-style: none;
+    margin: 10px 15px;
+}
+nav ul li a{
+    text-decoration: none;
+    color: #fff6f6;
+    font-weight: 400;
+}
+.login-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 14px 40px;
+    background-image: linear-gradient(45deg, #df4881, #c430d7);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+
+.signup-btn{
+    display: inline-block;
+    text-decoration: none;
+    color: #fff;
+    padding: 14px 40px;
+    background-image: linear-gradient(45deg, #df4881, #c430d7);
+    font-size: 14px;
+    border-radius: 30px;
+    border-top-right-radius: 0;
+    transition: 0.5s;
+}
+.content{
+    margin-top: 10%;
+    max-width: 600px;
+}
+
+.content h1{
+    font-size: 70px;
+    color: #ffffff;
+
+}
+
+.content p{
+    margin: 10px 0 30px;
+    color: #ffffff;
+    animation-delay: 0.5s;
+}
+
+.content .signup-btn{
+    padding: 15px 80px;
+    font-size: 16px;
+    animation-delay: 1.25s;
+}
+
+.signup-btn:hover{
+    border-top-right-radius: 30px;
+}
+
+.login-btn:hover{
+    border-top-right-radius: 30px;
+}
+.ft-img{
+    width: 480px;
+    position: absolute;
+    bottom: 0;
+    right: 10%;
+    
+}
+.ft-img.anim{
+    animation-delay: 1.5s;
+}
+.anim{
+    opacity: 0;
+    transform: translateY(30px);
+    animation: moveup 0.5s linear forwards;
+}
+@keyframes moveup {
+    100%{
+        opacity: 1;
+        transform: translateY(0px);
+    }
+    
+}
+.image-scroller {
+    position: absolute;
+    right: 10%;
+    top: 30%;
+    height: 400px;
+    width: 300px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.image-scroller img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    opacity: 0;
+    animation: slide 9s infinite;
+}
+
+.image-scroller img:nth-child(1) { animation-delay: 0s; }
+.image-scroller img:nth-child(2) { animation-delay: 3s; }
+.image-scroller img:nth-child(3) { animation-delay: 6s; }
+
+@keyframes slide {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    30% { opacity: 1; }
+    40% { opacity: 0; }
+    100% { opacity: 0; }
+}
