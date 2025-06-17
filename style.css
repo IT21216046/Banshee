@@ -115,9 +115,9 @@ nav ul li a{
 }
 .image-scroller {
     position: absolute;
-    right: 10%;
-    top: 30%;
-    height: 400px;
+    right: 15%;
+    top: 25%;
+    height: 500px;
     width: 300px;
     overflow: hidden;
     border-radius: 20px;
@@ -128,10 +128,10 @@ nav ul li a{
     top: 0;
     left: 0;
     width: 100%;
-    height: 400px;
-    object-fit: cover;
+    height: 450px;
     opacity: 0;
     animation: slide 9s infinite;
+    border-radius: 20px;
 }
 
 .image-scroller img:nth-child(1) { animation-delay: 0s; }
