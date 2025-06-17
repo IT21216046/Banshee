@@ -25,12 +25,81 @@
         <a href="#" class="signup-btn anim">Join Now</a>
 
     </div>
-    <div class="image-scroller anim">
-        <img src="images/RDR2.jpg" alt="Image 1">
-        <img src="images/DARKSOULS3.jpg" alt="Image 2">
-        <img src="images/SEKIRO.jpg" alt="Image 3">
+    <div class="carousel anim">
+        <button class="prev">&#10094;</button>
+
+        <div class="carousel-track-container">
+            <ul class="carousel-track">
+            <li class="carousel-slide current-slide">
+                <img src="images/RDR2.jpg" alt="Image 1">
+            </li>
+            <li class="carousel-slide">
+                <img src="images/DARKSOULS3.jpg" alt="Image 2">
+            </li>
+            <li class="carousel-slide">
+                <img src="images/SEKIRO.jpg" alt="Image 3">
+            </li>
+            </ul>
+        </div>
+
+        <button class="next">&#10095;</button>
     </div>
     
     </div>
 </body>
+<script>
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const nextButton = document.querySelector('.next');
+  const prevButton = document.querySelector('.prev');
+
+  let currentSlideIndex = 0;
+  let autoScrollInterval;
+  let autoScrollDelay = 3000; // in milliseconds
+
+  function updateCarousel(position) {
+    const slideWidth = slides[0].getBoundingClientRect().width;
+    track.style.transform = 'translateX(-' + slideWidth * position + 'px)';
+    slides.forEach(slide => slide.classList.remove('current-slide'));
+    slides[position].classList.add('current-slide');
+  }
+
+  function nextSlide() {
+    currentSlideIndex = (currentSlideIndex + 1) % slides.length;
+    updateCarousel(currentSlideIndex);
+  }
+
+  function prevSlide() {
+    currentSlideIndex = (currentSlideIndex - 1 + slides.length) % slides.length;
+    updateCarousel(currentSlideIndex);
+  }
+
+  // Auto-scroll setup
+  function startAutoScroll() {
+    autoScrollInterval = setInterval(nextSlide, autoScrollDelay);
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+  }
+
+  // When buttons are clicked, move manually and restart auto-scroll
+  nextButton.addEventListener('click', () => {
+    stopAutoScroll();
+    nextSlide();
+    startAutoScroll();
+  });
+
+  prevButton.addEventListener('click', () => {
+    stopAutoScroll();
+    prevSlide();
+    startAutoScroll();
+  });
+
+  // Init
+  updateCarousel(0);
+  startAutoScroll();
+</script>
+
+
 </html>
